@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogInActivity"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:text="Login"
+        android:paddingVertical="35dp"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:fontFamily="@font/urbanist_bold"
+        android:textColor="@color/ink_dark"
+        android:layout_marginBottom="25dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/googleSignInbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login using Google"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="100dp"
+        android:textColor="@color/sky_white"
+        app:icon="@drawable/google"
+        app:iconTintMode="multiply"
+        app:iconSize="20sp"
+        />
+
+</LinearLayout>

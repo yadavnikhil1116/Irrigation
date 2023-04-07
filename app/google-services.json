@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "186575144296",
+    "project_id": "irrigation-5e647",
+    "storage_bucket": "irrigation-5e647.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186575144296:android:a5ce8f96f5e991216902dd",
+        "android_client_info": {
+          "package_name": "com.example.irrigation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186575144296-mp6f96sbk7q3pjiih054spptejo349i3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.irrigation",
+            "certificate_hash": "f7d435491fa1e2f5129bced8a696948e7ec6d38b"
+          }
+        },
+        {
+          "client_id": "186575144296-b8482ftm8v9l048rhi94kqna7b0gdi1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUPY_XwZ45mMVbcR-pn3aOp2ce7ARblGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186575144296-8ljc3i78m08fgq3ik03qhif9f8p0kr1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

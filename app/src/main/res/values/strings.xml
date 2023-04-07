@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Irrigation</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_orders">Orders</string>
+    <string name="title_wallet">Wallet</string>
+    <string name="title_nearby">Nearby</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="searchbar_hint">Search</string>
+</resources>

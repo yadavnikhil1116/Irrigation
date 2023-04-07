@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Irrigation" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/ink_base</item>
+        <item name="colorPrimaryVariant">@color/ink_darker</item>
+        <item name="colorOnPrimary">@color/sky_white</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/primary_base</item>
+        <item name="colorSecondaryVariant">@color/primary_light</item>
+        <item name="colorOnSecondary">@color/sky_light</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
