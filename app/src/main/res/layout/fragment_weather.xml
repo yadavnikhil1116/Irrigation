@@ -1,15 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="10dp"
-    app:cardBackgroundColor="@color/primary_lighter"
     app:cardElevation="10dp"
-    app:cardCornerRadius="15dp"
-    >
+    app:cardCornerRadius="15dp">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ink_base"
+        android:id="@+id/CLHome"
+        >
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@color/ink_base"
+            android:id="@+id/backimg"
+            />
+
+        <TextView
+            android:id="@+id/citytxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="City Name"
+            android:textAlignment="center"
+            android:textColor="@color/sky_white"
+            android:textSize="18sp"
+            tools:ignore="MissingConstraints" />
+
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/citytxt"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/LLtemptxt"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tempheading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/LLtemptxt"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Temperature"
+                    android:textColor="#4DDC53"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/temptxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tempheading"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="23"
+                    android:textColor="@color/sky_white"
+                    android:textSize="40dp" />
+
+                <ImageView
+                    android:id="@+id/tempimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/temptxt"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/tempconditiontxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tempimg"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Condition"
+                    android:textAlignment="center"
+                    android:textColor="@color/sky_white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LLhumiditytxt"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/humidityheading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/LLhumiditytxt"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Humidity"
+                    android:textColor="#4DDC53"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/humiditytxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/humidityheading"
+                    android:layout_marginLeft="250dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="23"
+                    android:textColor="@color/sky_white"
+                    android:textSize="40dp" />
+
+                <ImageView
+                    android:id="@+id/humidityimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/humiditytxt"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/humidityconditiontxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/humidityimg"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Condition"
+                    android:textAlignment="center"
+                    android:textColor="@color/sky_white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LLwindspeedtxt"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/windSpeedheading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/LLwindspeedtxt"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Wind Speed"
+                    android:textColor="#4DDC53"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/windSpeedtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/windSpeedheading"
+                    android:layout_marginLeft="40dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="23"
+                    android:textColor="@color/sky_white"
+                    android:textSize="40dp" />
+
+                <ImageView
+                    android:id="@+id/windSpeedimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/windSpeedtxt"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/windSpeedconditiontxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/windSpeedimg"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Condition"
+                    android:textAlignment="center"
+                    android:textColor="@color/sky_white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LLrainprobabilitytxt"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/rainprobabilityheading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/LLrainprobabilitytxt"
+                    android:layout_marginLeft="200dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Rain Probability"
+                    android:textColor="#4DDC53"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rainprobabilitytxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rainprobabilityheading"
+                    android:layout_marginLeft="250dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="23"
+                    android:textColor="@color/sky_white"
+                    android:textSize="40dp" />
+
+                <ImageView
+                    android:id="@+id/rainprobabilityimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/rainprobabilitytxt"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/rainprobabilityconditiontxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rainprobabilityimg"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Condition"
+                    android:textAlignment="center"
+                    android:textColor="@color/sky_white" />
+
+            </LinearLayout>
+
+        </GridLayout>
+
+        <LinearLayout
+            android:id="@+id/forcastLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Today's Weather Forecast"
+                android:textColor="#4DDC53"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RVforcast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:layout_editor_absoluteX="3dp"
+                tools:layout_editor_absoluteY="672dp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
