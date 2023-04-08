@@ -59,40 +59,7 @@ public class WeatherFragment extends Fragment {
     private LocationManager locationManager;
     private int PERMISSION_CODE = 1;
     private String cityName;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        home = getView().findViewById(R.id.CLHome);
-        citytxt = getView().findViewById(R.id.citytxt);
-        temptxt = getView().findViewById(R.id.temptxt);
-        tempconditiontxt = getView().findViewById(R.id.tempconditiontxt);
-        backimg = getView().findViewById(R.id.backimg);
-        tempimg = getView().findViewById(R.id.tempimg);
-        RVforcast = getView().findViewById(R.id.RVforcast);
-        weatherRVModelArrayList = new ArrayList<>();
-        weatherRVAdapter = new WeatherRVAdapter(getContext(), weatherRVModelArrayList);
-        RVforcast.setAdapter(weatherRVAdapter);
-
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if(ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION)!=PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions((Activity) getContext(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSION_CODE);
-        }
-        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        cityName = getCityName(location.getLongitude(), location.getLatitude());
-        getWeatherInfo(cityName);
-
-    }
-
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-            Toast.makeText(getContext(), "Permission granted...", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getContext(), "Please provide permissions...", Toast.LENGTH_SHORT).show();
-        }
-    }
+    private View view;
 
     private String getCityName(double longitude, double latitude){
         String cityName = "NOT FOUND";
@@ -100,8 +67,10 @@ public class WeatherFragment extends Fragment {
         try{
             List<Address> addresses = gcd.getFromLocation(latitude, longitude, 10);
             for(Address add : addresses){
+                Log.d("Address", String.valueOf(addresses));
                 if(add!=null){
                     String city = add.getLocality();
+                    Log.d("city", city);
                     if(city!=null && !city.equals("")){
                         cityName = city;
                     }else {
@@ -115,7 +84,7 @@ public class WeatherFragment extends Fragment {
         }
         return cityName;
     }
-
+//    http://api.weatherapi.com/v1/forecast.json?key=53c14852a4ca406c84194454230104&q=Panipat&days=1&aqi=yes&alerts=yes
     private void getWeatherInfo(String cityName){
         String url = "http://api.weatherapi.com/v1/forecast.json?key=53c14852a4ca406c84194454230104&q="+cityName+"&days=1&aqi=yes&alerts=yes";
         citytxt.setText(cityName);
@@ -126,9 +95,12 @@ public class WeatherFragment extends Fragment {
                 weatherRVModelArrayList.clear();
                 try {
                     String temperature = response.getJSONObject("current").getString("temp_c");
+                    Log.d("temp", temperature);
                     temptxt.setText(temperature+"℃");
                     int isDay = response.getJSONObject("current").getInt("is_day");
+                    Log.d("isDay", String.valueOf(isDay));
                     String condition = response.getJSONObject("current").getJSONObject("condition").getString("text");
+                    Log.d("condition", condition);
                     String conditionIcon = response.getJSONObject("current").getJSONObject("condition").getString("icon");
                     Picasso.get().load("http:".concat(conditionIcon)).into(tempimg);
                     tempconditiontxt.setText(condition);
@@ -166,6 +138,23 @@ public class WeatherFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_weather, container, false);
+        view = inflater.inflate(R.layout.fragment_weather, container, false);
+        home = view.findViewById(R.id.CLHome);
+        citytxt = view.findViewById(R.id.citytxt);
+        temptxt = view.findViewById(R.id.temptxt);
+        tempconditiontxt = view.findViewById(R.id.tempconditiontxt);
+        backimg = view.findViewById(R.id.backimg);
+        tempimg = view.findViewById(R.id.tempimg);
+        RVforcast = view.findViewById(R.id.RVforcast);
+        weatherRVModelArrayList = new ArrayList<>();
+        weatherRVAdapter = new WeatherRVAdapter(getContext(), weatherRVModelArrayList);
+        RVforcast.setAdapter(weatherRVAdapter);
+
+        double latitude = 28.1833322;
+        double longitude = 76.616669;
+        cityName = getCityName(longitude, latitude);
+        getWeatherInfo(cityName);
+
+        return view;
     }
 }
